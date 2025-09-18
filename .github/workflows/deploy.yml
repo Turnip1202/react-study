@@ -52,11 +52,13 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        
+      - name: Display deployment URL
+        run: |
+          echo "🚀 Deployment completed!"
+          echo "📄 GitHub Pages URL: ${{ steps.deployment.outputs.page_url }}"
+          echo "::notice title=GitHub Pages URL::${{ steps.deployment.outputs.page_url }}"
