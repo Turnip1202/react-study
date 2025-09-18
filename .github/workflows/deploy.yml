@@ -7,7 +7,7 @@ on:
 
 # 设置权限
 permissions:
-  contents: write  # 需要写权限来推送到 master 分支
+  contents: read
   pages: write
   id-token: write
 
@@ -17,14 +17,12 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
     
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0  # 获取完整历史记录
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -42,18 +40,23 @@ jobs:
       - name: Build
         run: pnpm build
 
-      - name: Deploy to master branch
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
-          publish_branch: master  # 部署到 master 分支
-          user_name: 'github-actions[bot]'
-          user_email: 'github-actions[bot]@users.noreply.github.com'
-          commit_message: 'Deploy from source branch'
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
 
-      - name: Display GitHub Pages URL
-        run: |
-          echo "🚀 Deployment completed!"
-          echo "📄 GitHub Pages URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}"
-          echo "::notice title=GitHub Pages URL::https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}"
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './dist'
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
