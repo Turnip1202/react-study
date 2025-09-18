@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext, useReducer, useMemo, useCallback, useRef, useLayoutEffect } from 'react'
+import React, { useState, useEffect, useReducer, useMemo, useCallback, useRef } from 'react'
 import './HooksDemo.css'
 
 // Custom Hook Example
