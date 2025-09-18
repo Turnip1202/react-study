@@ -18,7 +18,7 @@ import './App.css'
 
 function App() {
   return (
-    <Router>
+    <Router basename="/react-study">
       <div className="App">
         <Navigation />
         <main className="main-content">
