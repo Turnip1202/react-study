@@ -1,0 +1,141 @@
+/* ContextDemo.css */
+
+.context-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  min-height: 100vh;
+  transition: all 0.3s ease;
+}
+
+.context-container h1 {
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 2.5rem;
+}
+
+.description {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 1.1rem;
+  opacity: 0.8;
+}
+
+.demo-section {
+  margin-bottom: 40px;
+  padding: 30px;
+  border-radius: 12px;
+  border-left: 4px solid #3498db;
+}
+
+.demo-section h2 {
+  margin-top: 0;
+  margin-bottom: 25px;
+  font-size: 1.8rem;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 10px;
+}
+
+.concepts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.concept {
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.concept h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.demo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+.theme-display, .user-profile, .shopping-cart {
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.theme-colors {
+  display: flex;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.color-block {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.theme-display button, .user-profile button, .shopping-cart button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  margin: 5px;
+}
+
+.products .product, .cart .cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.best-practices {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.practice {
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.practice h4 {
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+.practice ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.practice li {
+  margin-bottom: 8px;
+}
+
+@media (max-width: 768px) {
+  .context-container {
+    padding: 15px;
+  }
+  
+  .demo-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .concepts {
+    grid-template-columns: 1fr;
+  }
+  
+  .best-practices {
+    grid-template-columns: 1fr;
+  }
+}
