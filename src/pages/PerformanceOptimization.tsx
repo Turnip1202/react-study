@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useCallback, memo, useRef, useEffect } from 'react'
+import React, { useState, useMemo, useCallback, memo, useRef } from 'react'
 import './PerformanceOptimization.css'
 
 // Expensive calculation simulation
